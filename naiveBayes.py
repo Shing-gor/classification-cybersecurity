@@ -29,7 +29,7 @@ print(classification_report(yTest, yPred, zero_division=0))
 confusionMatrix = confusion_matrix(yTest, yPred)
 
 # Heatmap visualisation of the Confusion Matrix
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(10, 10))
 sns.heatmap(confusionMatrix, annot=True, fmt='d', cmap='Blues', xticklabels=model.classes_, yticklabels=model.classes_)
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
