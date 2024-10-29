@@ -8,8 +8,6 @@
 import pandas as pd
 import lightgbm as lgb
 from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.metrics import classification_report, confusion_matrix
-from sklearn import metrics
 
 # Dropped dataset, IoTIP_int, hostIP_int, year_month
 df = pd.read_csv('newSample.csv')
