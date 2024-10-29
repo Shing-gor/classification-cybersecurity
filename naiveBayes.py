@@ -7,16 +7,17 @@ import matplotlib.pyplot as plt
 
 # Dropped dataset, IoTIP_int, hostIP_int, year_month
 df = pd.read_csv('newSample.csv')
-X = df.drop(columns=['IoTMac'])
-y = df['IoTMac']
 
 # Defines categorical variables
 categories = ['IoTMac', 'hostMac', 'IoTIP', 'hostIP', 'ipProto', 'reverseFlowExists', 'remote', 'broadcast', 'HTTP', 'HTTPS', 'DNS', 'NTP', 'TCP_others', 'UDP_others']
 for var in categories:
     df[var] = df[var].astype('category')
 
+X = df.drop(columns=['IoTMac'])
+y = df['IoTMac']
+
 X = pd.get_dummies(X, drop_first=True)
-XTrain, XTest, yTrain, yTest = train_test_split(X, y, test_size=0.2, random_state=10)
+XTrain, XTest, yTrain, yTest = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Fits the model on the training data using Naive Bayes
 model = GaussianNB()
