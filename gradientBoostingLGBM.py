@@ -3,7 +3,7 @@
 
 # Note:
 # Care in running the grid search it will take a very long time
-# Current best params: {'learning_rate': 0.05, 'max_depth': 10, 'n_estimators': 100, 'num_leaves': 50}
+# Current best params for sample: {'learning_rate': 0.05, 'max_depth': 10, 'n_estimators': 100, 'num_leaves': 50}
 
 import pandas as pd
 import lightgbm as lgb
