@@ -15,7 +15,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd 
 from sklearn.preprocessing import StandardScaler
 
-sample = pd.read_csv("sample2.csv")
+sample = pd.read_csv("sample.csv")
 test_size = 0.2
 column_names = [
     "dataset", "start_date", "start_time", "duration", "reverseDelta", "IoTMac", "hostMac", "IoTIP", "IoTIP_int",
