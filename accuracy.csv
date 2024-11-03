@@ -4,3 +4,4 @@ gradient boosting, approx 94.7%, approx 95.9%, too slow
 KNN,83.908%,91.746%, too slow
 naive bayes, 26.900%, not enough memory,
 svm, 92.350%,93.900%,
+neural network,82.750%,87.845%,
