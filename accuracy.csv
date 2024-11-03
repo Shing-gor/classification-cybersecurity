@@ -2,4 +2,4 @@ model name, 10000 sample accuracy, 100000 sample accuracy, full dataset accuracy
 random forest, 93.800%, 94.845%,96.074%
 gradient boosting, approx 94.7%, approx 95.9%, too slow
 KNN,,91.421%, too slow
-naive bayes, approx 26%, not enough memory,
+naive bayes, 26.900%, not enough memory,
