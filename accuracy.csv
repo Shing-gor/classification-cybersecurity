@@ -5,3 +5,12 @@ KNN,83.908%,91.746%,, too slow,5.55,1.33,,,,O(n^2),,
 naive bayes, 26.900%, not enough memory,,,,13.5,,,,,O(n^2),
 svm, 92.350%,93.900%,,,502,7.52,,,,,,
 neural network,82.250%,88.030%,,89.325%,36.6,3.96,,,,,,
+
+| Model Name         | 10000 Sample Accuracy | 100000 Sample Accuracy | Time-Based Sample Accuracy | Full Dataset Accuracy | Time (100000) | Time (10000) | Time (Full) | Fit Time | Prediction Time | Time Complexity   | Space Complexity    | Space (100000) |
+|--------------------|-----------------------|-------------------------|----------------------------|-----------------------|---------------|--------------|-------------|----------|-----------------|-------------------|---------------------|----------------|
+| Random Forest      | 94.200%               | 96.165%                 | 96.579%                    |                       | 44.5          | 6.94         | 15131       | 15131    | 6.94            | O(n log(n))       | O(trees * depth)    | Moderate       |
+| Gradient Boosting  | 94.400%               | 96.070%                 |                            |                       | 289.7         | 87.1         |             | High      | Moderate        | Ω(n log n)        | O(trees * depth)    | High           |
+| KNN                | 83.908%               | 91.746%                 |                            | Too slow              | 5.55          | 1.33         | Too slow    | Moderate | High            | O(n^2)            | O(n)                | Very High      |
+| Naive Bayes        | 26.900%               | Not enough memory       |                            |                       | 13.5          |              |             | Low       | Low             | O(n)              | O(n)                | Low            |
+| SVM                | 92.350%               | 93.900%                 |                            |                       | 502           | 7.52         |             | High      | High            | O(n^2) to O(n^3)  | O(n)                | High           |
+| Neural Network     | 82.250%               | 88.030%                 | 89.325%                    |                       | 36.6          | 3.96         |             | Very High | Moderate        | O(n * layers)     | O(params + data)   | Very High      |
