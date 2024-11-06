@@ -32,7 +32,8 @@ parameters = param_grid = {
     'n_estimators': [50, 100, 200]
 }
 
-grid = GridSearchCV(lgb.LGBMClassifier(random_state=42), param_grid, cv=3, scoring='neg_log_loss', n_jobs=-1)
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+grid = GridSearchCV(lgb.LGBMClassifier(random_state=42), param_grid, cv=cv, scoring='neg_log_loss', n_jobs=-1)
 grid.fit(XTrain, yTrain)
 
 bestParamsModel = grid.best_estimator_
