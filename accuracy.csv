@@ -1,6 +1,6 @@
 model name, 10000 sample accuracy, 100000 sample accuracy, time_based sample accuracy, full dataset accuracy, time (100000), time(10000), time(full), fit time(μs), inference time (μs), time complexity, space complexity, space(100000)
 random forest, 94.200%, 96.165%,93.550%,96.579%,44.5,6.94,15131,665,51,see table in presentation,,
-gradient boosting, 94.400%, 96.070%,96.094%,too slow,289.7,87.1,too slow,2730,701,,,
+gradient boosting, 94.400%, 96.070%,93.395,too slow,289.7,87.1,too slow,2730,701,,,
 KNN,83.908%,91.746%,-, too slow,5.55,1.33,too slow,,,,,
 naive bayes, 26.900%, not enough memory, - , - ,,13.5,,,,,O(n^2),
 svm, 92.350%,93.900%, - ,too slow,502,7.52,too slow,,,,,
