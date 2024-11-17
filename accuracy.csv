@@ -3,6 +3,6 @@ random forest, 94.200%, 96.165%,93.550%,96.579%,44.5,6.94,15131,665,51,see table
 gradient boosting, 94.400%, 96.070%,93.395%,too slow,289.7,87.1,too slow,2730,701,,,
 KNN,83.908%,91.746%,-, too slow,5.55,1.33,too slow,,,,,
 naive bayes, 26.900%, not enough memory, - , - ,,13.5,,,,,O(n^2),
-svm, 92.350%,93.900%, - ,too slow,502,7.52,too slow,,,,,
+svm, 92.350%,93.890%, - ,too slow,502,7.52,too slow,,,,,
 neural network,82.250%,88.030%,86.270%,88.959%,36.6,3.96,6673,333,14,,,
 
