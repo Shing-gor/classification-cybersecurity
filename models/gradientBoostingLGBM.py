@@ -1,22 +1,23 @@
-# TO DO: 
-# - Implement CV later since it will probably add a lot to the already long runtime
-
 # Note:
 # Care in running the grid search it will take a very long time
 # Current best params for sample: {'learning_rate': 0.05, 'max_depth': 10, 'n_estimators': 100, 'num_leaves': 50}
+# Current best params for sample2: {'learning_rate': 0.01, 'max_depth': 20, 'n_estimators': 200, 'num_leaves': 100}
 
 import pandas as pd
 import lightgbm as lgb
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+from matplotlib.colors import LogNorm
+import matplotlib.pyplot as plt
 
-# Dropped dataset, IoTIP_int, hostIP_int, year_month
-df = pd.read_csv('newSample.csv')
+df = pd.read_csv('sample.csv')
 
-# Drop original date and time columns
-df.drop(columns=['start_date', 'start_time'], inplace=True)
+# Drop the following columns
+df.drop(columns=['dataset', 'IoTIP_int', 'hostIP_int', 'year_month', 'start_date', 'start_time', 'IoTIP', 'hostIP', 'hostMac'], inplace=True)
 
-# Defines categorical variables
-categories = ['IoTMac', 'hostMac', 'IoTIP', 'hostIP', 'ipProto', 'reverseFlowExists', 'remote', 'broadcast', 'HTTP', 'HTTPS', 'DNS', 'NTP', 'TCP_others', 'UDP_others']
+# Define the categorical variables
+categories = ['IoTMac', 'ipProto', 'hostPort', 'IoTPort', 'reverseFlowExists', 'remote', 'broadcast', 'HTTP', 'HTTPS', 'DNS', 'NTP', 'TCP_others', 'UDP_others']
 for var in categories:
     df[var] = df[var].astype('category')
 
@@ -44,4 +45,13 @@ print("Best parameters found: ", grid.best_params_)
 print('Training accuracy {:.4f}'.format(bestParamsModel.score(XTrain, yTrain)))
 print('Testing accuracy {:.4f}'.format(bestParamsModel.score(XTest,yTest)))
 
+# Shows true positives, true negatives, false positives, false negatives
+yPred = bestParamsModel.predict(XTest)
+confusionMatrix = confusion_matrix(yTest, yPred)
+for f in confusionMatrix:
+    f += 1
+s = sns.heatmap(confusionMatrix, annot=False, cmap='coolwarm', norm=LogNorm())
+s.set_xlabel('Predicted Class')
+s.set_ylabel('Actual Class')
+plt.show()
     
